@@ -9,9 +9,22 @@
   color: black;
   text-align: center;
   color:red;
-  margin-top: -8000px;
 }
-
+@media screen and (min-height: 415px){
+	.dis {
+	 margin-top: -100vh;
+	}
+  }
+  @media screen and (max-height: 415px){
+	.dis {
+	 margin-top: -100vh;
+	}
+  }
+  @media screen and (max-height: 615px){
+	.dis {
+	 margin-top: -100vh;
+	}
+  }
 .dis1 {
   
   min-height: 100vh;
@@ -37,9 +50,14 @@
   color: black;
   text-align: center;
   color:black;
-
-  margin-top: -800px;
+  margin-top: -700px;
+  
 }
+@media only screen and (max-height: 1000px) {
+	.dis3 {
+		margin-top: -600px;
+	}
+  }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

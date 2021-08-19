@@ -104,10 +104,10 @@ return(
 	        <TableHead>
 	          <TableRow>
 	          
-	            <StyledTableCell align="center"><strong>Date to Leave</strong></StyledTableCell>
-	            <StyledTableCell align="center"><strong>numberOfDays</strong></StyledTableCell>
-	            <StyledTableCell align="center"><strong>reason</strong></StyledTableCell>
-	           <StyledTableCell align="center"><strong>employee Name</strong></StyledTableCell>
+	            <StyledTableCell align="center"><strong>Date of Leave</strong></StyledTableCell>
+	            <StyledTableCell align="center"><strong>No.of Days</strong></StyledTableCell>
+	            <StyledTableCell align="center"><strong>Reason</strong></StyledTableCell>
+	           <StyledTableCell align="center"><strong>Employee Name</strong></StyledTableCell>
 	           <StyledTableCell align="center"><strong>Action1 </strong></StyledTableCell>
 	           <StyledTableCell align="center"><strong>Action2 </strong></StyledTableCell>
 	          </TableRow>

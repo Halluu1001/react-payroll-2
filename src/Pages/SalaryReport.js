@@ -100,7 +100,7 @@ const SalaryReport=()=> {
       <br/>
     <br/>
     
-    <TableContainer component={Paper} style={{width: 700, height: 200 , marginLeft: 60}}>
+    <TableContainer component={Paper} style={{width: 1000, height: 200 , marginLeft: 60}}>
       <Table className={classes.table} aria-label="customized table" >
         <TableHead>
           <TableRow>

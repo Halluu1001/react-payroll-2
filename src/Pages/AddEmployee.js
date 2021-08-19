@@ -18,6 +18,8 @@ import Swal from 'sweetalert2'
 import EmployeeService from '../EmployeeService';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 
 const useStyles = makeStyles((theme)=>({
   root: {
@@ -126,7 +128,7 @@ const AddEmployee=()=>{
 
   	const Swal = require('sweetalert2')
 
-  	
+  	const [value,setValue]= useState(0);
   									
   const handleChange = (event) => {
     setPosition(event.target.value);
@@ -145,7 +147,7 @@ const AddEmployee=()=>{
 			Swal.fire({
 			  icon: 'error',
 			  title: 'Oops...',
-			  text: 'Some data missing!',
+			  text: 'Some data is missing!',
 			})
 		}
 		if((phone.length!=10) || (text == "fail") || (position == ""))
@@ -203,7 +205,7 @@ const AddEmployee=()=>{
 		if(firstname=="")
 		{	
 			setErrorVal(true)
-			setError("This is required")
+			setError("This field is required")
 		}
 		else{setErrorVal(false); setError("")}
 	}
@@ -212,7 +214,7 @@ const AddEmployee=()=>{
 		if(lastname=="")
 		{
 			setErrorValLast(true)
-			setError1("This is required!")
+			setError1("This field is required!")
 		}
 		else
 		{
@@ -232,7 +234,7 @@ const AddEmployee=()=>{
 		else
 		{
 			setErrorVal1(true)
-			setPhoneErr("phoneNumber must be == 10.")
+			setPhoneErr("Phone No is required")
 		}
 	}
 
@@ -250,7 +252,7 @@ const AddEmployee=()=>{
 		{
 			setEmailErr(true)
 			setText("fail")
-			setErrorText("emailId must be following (a-z),(0-9)")
+			setErrorText("EmailId required")
 		}
 	}
 
@@ -295,7 +297,7 @@ const AddEmployee=()=>{
 		
 		else
 		{
-			setSalaryErr("enter salary")
+			setSalaryErr("Enter salary")
 			setSalaryTxt(true)
 		}
 	}
@@ -331,7 +333,7 @@ const AddEmployee=()=>{
 		<Card className={classes.root} >
 		<CardContent>
 			<Typography className={classes.title}  gutterBottom>
-	          EmployeeDetail
+	          Employee Detail
 	        </Typography>
 	        <div className="form1">
 		        <label className="txt1">First Name
@@ -361,7 +363,6 @@ const AddEmployee=()=>{
 		        	 <RadioGroup className="radio" aria-label="gender" name="gender1" value={gender} onChange={(e)=>setGender(e.target.value)}>
 				        <FormControlLabel value="female" control={<Radio />} label="Female" />
 				        <FormControlLabel value="male" control={<Radio />} label="Male" />
-				        <FormControlLabel value="other" control={<Radio />} label="Other" />
 				     
 				      </RadioGroup>
 		        </div>
@@ -376,9 +377,16 @@ const AddEmployee=()=>{
 		  		 <br/>
 		        
 		        <label  className="txt1">Phone Number
-		        <div>
-					<TextField className="phone" error={errorVal1} helperText={phoneerr} onBlur={handleBlurPhone} type="number" onChange={(e)=>setPhone(e.target.value)} value={phone} placeholder="XXX-XXX-XXXX" label="Phone Number" size="small" variant="outlined" required/>{(phone.toString().length===10) ? <CheckCircleIcon style={{color:'green',position:'relative',left:'16px',top:'5px'}} /> : <CancelIcon className="circle3" style={{color:'red',position:'relative',left:'20px'}} />}
+		        <div >
+				<PhoneInput
+				style={{height:'40px',marginLeft:'20px',position:'relative'}}
+						international
+						defaultCountry="IN"
+						value={value}
+						
+						onChange={setValue}/>
 		        </div>
+				
 		        </label>
 		         <br/>
 		     
@@ -391,7 +399,7 @@ const AddEmployee=()=>{
 
 		        <label className="txt1">Password
 		        <div>
-		         	<input onBlur={handleBlurPassword} style={{border:'1px solid green',height:'35px',width:'200px',left:'44px',top:'20px',position:'relative'}} placeholder="password" type={(show) ? "password" : "text"} value={password} onChange={(e)=>{setPassword(e.target.value)}}/><label style={{left:'10px',top:'26px',position:'relative'}} onClick={handleClicking}>{(show) ? <VisibilityIcon /> : <VisibilityOffIcon />}</label>{(passerr) ? <p style={{color:'green',marginTop:'19px',display:'flex',justifyContent:'center'}}>sucess</p> : <p style={{color:'red',display:'flex',marginTop:'24px',justifyContent:'center'}}>type correct</p> }
+		         	<input onBlur={handleBlurPassword} style={{border:'1px solid green',height:'35px',width:'200px',left:'44px',top:'20px',position:'relative'}} placeholder="password" type={(show) ? "password" : "text"} value={password} onChange={(e)=>{setPassword(e.target.value)}}/><label style={{left:'10px',top:'26px',position:'relative'}} onClick={handleClicking}>{(show) ? <VisibilityIcon /> : <VisibilityOffIcon />}</label>{(passerr) ? <p style={{color:'green',marginTop:'19px',display:'flex',justifyContent:'center'}}>Success</p> : <p style={{color:'red',display:'flex',marginTop:'24px',justifyContent:'center'}}>Password is required</p> }
 		        </div>
 		        </label>
 

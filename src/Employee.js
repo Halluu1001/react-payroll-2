@@ -8,6 +8,7 @@ import {useHistory} from 'react-router-dom';
 import EmpRoute from './EmpRoute';
 import EmployeeService from './EmployeeService';
 import EmployeeService1 from './EmployeeService1';
+import { Card } from 'react-bootstrap';
 
 const Employee=()=>
 {
@@ -94,11 +95,11 @@ const Employee=()=>
 
 
 	return(
-		<div>
-		{val===true ? null : <div className="App-header1">
+		<div >
+		{val===true ? null : <div  className="App-header1">
 			<label>Employee Login</label>
-			 <label>Enter userName:<input type="text" value={name} onChange={(e)=>setName(e.target.value)}/></label>
-		      <label>Enter Password:<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} /></label>
+			<br/> <label style={{textAlign: 'center'}}>Enter User Name:<input type="text" value={name} onChange={(e)=>setName(e.target.value)}/></label>
+		      <br/><label style={{textAlign: 'center'}}>Enter Password:<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} /></label>
 		     <br/>
 		     <div className="btn">
 		      <Button variant="contained" color="secondary" onClick={handleClick}>
@@ -108,6 +109,7 @@ const Employee=()=>
 		      </div>
 		</div>}
 		{val===true && <EmpRoute student={name1.toLowerCase()} count1={count} id={id} />}
+		
 		</div>
 		)
 }

@@ -12,6 +12,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Employee from './Employee';
+import {Card} from 'react-bootstrap'
 
 const Login=(props)=>
 {
@@ -24,7 +25,7 @@ const Login=(props)=>
 
   const handleClick=()=>
   {
-    if((name!="Admin") || (password!="Admin@123"))
+    if((name!="123") || (password!="123"))
     {
       alert("enter correct userName and password!!");
     }
@@ -44,20 +45,29 @@ const Login=(props)=>
 
   return(
     <>
-   <div className="App-header1">
-    {value==='Admin' ? <div className="App-header1">
-      <label>Admin Login</label>
-      <label>Enter userName:<input type="text" value={name} onChange={(e)=>setName(e.target.value)}/></label>
-      <label>Enter Password:<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} /></label>
-      <Button variant="contained" color="secondary" onClick={handleClick}>
+   <div>
+   {value==='Admin' ?  <div  className="App-header2">
+     
+  
+   
+    
+      <label style={{textAlign: "center", fontWeight: "bold", display:'flex',justifyContent:'center'}}>Admin Login</label>
+      <div style={{display:'flex',justifyContent:'space-between',flexDirection:'column'}}>
+      <br/>
+      <div ><label style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>Enter User Name:<input type="text" value={name} onChange={(e)=>setName(e.target.value)}/></label></div>
+      <br/><label style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>Enter Password:<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} /></label>
+     <br/> <Button variant="contained" color="secondary" onClick={handleClick}>
             Login
       </Button>
+      </div>
+      <div style={{display: "flex", justifyContent: "center"}}>
       <RadioGroup className="radiobtn" aria-label="gender" name="gender1" value={value} onChange={handleChange}>
         <FormControlLabel  value="Admin" control={<Radio />} label="Admin" />
         <FormControlLabel value="Employee" control={<Radio />} label="Employee" />
       </RadioGroup>
+      </div>
+  
     </div>:<Employee />}
-
     </div>
     </>
     )
