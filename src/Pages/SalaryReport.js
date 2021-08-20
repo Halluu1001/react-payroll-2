@@ -16,6 +16,7 @@ import Paper from '@material-ui/core/Paper';
 import {Button} from '@material-ui/core'
 import EmployeeService from '../EmployeeService';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import DatePicker from 'react-date-picker';
 
 const SalaryReport=()=> {
     const useStyles = makeStyles((theme) => ({
@@ -50,6 +51,8 @@ const SalaryReport=()=> {
       }))(TableRow);
       
       const[name,setName]=useState(0);
+      const [value, onChange] = useState(new Date());
+
      
         const classes = useStyles();
    		console.log(name);
@@ -78,8 +81,8 @@ const SalaryReport=()=> {
 				empdata.push(empdat);
 			}
 		})
-		console.log("the empdat: ",empdata);	
-    console.log("id: ",name);
+		// console.log("the empdat: ",empdata);	
+    // console.log("id: ",name);
     return (
       <div>
         <div className="dis3">
@@ -98,7 +101,13 @@ const SalaryReport=()=> {
 		        </NativeSelect>
 		        </label>
       <br/>
-    <br/>
+      <h4 style={{marginTop: -10,marginLeft: -150}}>Select Date:</h4>
+	<div style={{marginTop: -65,marginLeft: 180}}>
+      <DatePicker
+        onChange={onChange}
+        value={value}
+      />
+    </div><br/>
     
     <TableContainer component={Paper} style={{width: 1000, height: 200 , marginLeft: 60}}>
       <Table className={classes.table} aria-label="customized table" >

@@ -1,5 +1,5 @@
  import './Decorate.css';
-
+ import DatePicker from 'react-date-picker';
 
 import React,{useState,useEffect} from 'react';
 import Table from '@material-ui/core/Table';
@@ -72,7 +72,7 @@ const Report =()=>
 
 	const[approved,setApproved]=useState(false);
 	const[cancelled,setCancelled]=useState(false);
-
+	const [value, onChange] = useState(new Date());
 	var s={approved:'true',cancelled:'false'}
 	var s1={approved:'false',cancelled:'true'}
 	function setApproved1(id)
@@ -92,14 +92,28 @@ const Report =()=>
 		})
 		
 	}
-	
+	var femployee =[];
+employee.map((emp)=> {
+	femployee.push( emp.date.split("to"));
+})
+
+
 
 return(
 	<>
 	
 	<div className="dis3">
+	<h4>Leave Report</h4>
 	
-		<TableContainer className={classes.table1} style={{width: 900, height: 400 , marginLeft: 90}} component={Paper}>
+	
+	<div style={{display:'flex'}}>
+		<h4>Select Date:</h4>
+      <DatePicker
+        onChange={onChange}
+        value={value}
+      />
+    </div><br/>
+		<TableContainer className={classes.table1} component={Paper}>
 	      <Table className={classes.table} aria-label="customized table">
 	        <TableHead>
 	          <TableRow>

@@ -102,7 +102,7 @@ const[name,setName]=useState("");
   
 
   const handleClass=()=>{history.push('./add-class');setName("ADD Class..")}
-  const handleAdd=()=>{history.push('/addEmployee');setName("ADD Employee..")}
+  const handleAdd=()=>{history.push('/addEmployee');setName("ADD Employee")}
   const handleReport=()=>{history.push('./report');setName("Employee Report")}
   const handleLeave=()=>{history.push('./leave-employee')}
   const handleSalary=()=>{history.push('./salary');setName("Generate Salary")}
