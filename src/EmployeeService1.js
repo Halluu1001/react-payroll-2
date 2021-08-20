@@ -1,8 +1,9 @@
 import axios from 'axios'
 
-const EMPLOYEE_API_BASE_URL="http://localhost:8080/leaves";
-const EMPLOYEE_API_BASE_URL1="http://localhost:8080/leave";
-
+// const EMPLOYEE_API_BASE_URL="http://localhost:8080/leaves";
+// const EMPLOYEE_API_BASE_URL1="http://localhost:8080/leave";
+const EMPLOYEE_API_BASE_URL="https://rubix-pay-server.herokuapp.com/leaves";
+const EMPLOYEE_API_BASE_URL1="https://rubix-pay-server.herokuapp.com/leave";
 class EmployeeService1{
 	getLeaves()
 	{
