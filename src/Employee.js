@@ -9,10 +9,13 @@ import EmpRoute from './EmpRoute';
 import EmployeeService from './EmployeeService';
 import EmployeeService1 from './EmployeeService1';
 import { Card } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import User from './userlogin.jpeg'
+import Admin from './Login';
 
 const Employee=()=>
 {
-	const [value, setValue] = useState('Admin');
+	const [value, setValue] = useState('Employee');
 	const[name,setName]=useState("");
   	const[password,setPassword]=useState("");
   	
@@ -95,19 +98,49 @@ const Employee=()=>
 
 
 	return(
-		<div >
-		{val===true ? null : <div  className="App-header1">
-			<label>Employee Login</label>
-			<br/> <label style={{textAlign: 'center'}}>Enter User Name:<input type="text" value={name} onChange={(e)=>setName(e.target.value)}/></label>
-		      <br/><label style={{textAlign: 'center'}}>Enter Password:<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} /></label>
-		     <br/>
-		     <div className="btn">
-		      <Button variant="contained" color="secondary" onClick={handleClick}>
-		            Employee Login
-		      </Button>
+		<div class="vh-100 d-flex justify-content-center align-items-center" >
+        
+		{val===true ? null : <div >
+			{value==='Employee' ? <div class="card mx-auto" style={{maxWidth: "540px"}}>
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src= {User} class="img-fluid rounded-start" alt="Responsive image"/>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" style={{textAlign: 'center'}}>Employee Login</h5><br/>
+        <div class="form-floating mb-3 ">
+  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value={name} onChange={(e)=>setName(e.target.value)}/>
+  <label for="floatingInput">User Name</label>
+</div>
+<div class="form-floating">
+  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+  <label for="floatingPassword">Password</label>
+</div><br/>
+        <div class="col-md-12 text-center">  <button type="button"onClick={handleClick} class="btn btn-primary"  >Login</button></div>
+      <br/> <div class="col-md-12 text-center"> <div class="btn-group" role="group" aria-label="Basic radio toggle button group" value={value} onChange={handleChange}>
+  <input value="Employee" type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked/>
+  <label class="btn btn-outline-primary" for="btnradio1">Employee</label>
+
+  <input value="Admin" type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"/>
+  <label class="btn btn-outline-primary" for="btnradio2">Admin</label>
+</div></div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+			// {/* <label>Employee Login</label>
+			// <br/> <label style={{textAlign: 'center'}}>Enter User Name:<input type="text" value={name} onChange={(e)=>setName(e.target.value)}/></label>
+		    //   <br/><label style={{textAlign: 'center'}}>Enter Password:<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} /></label>
+		    //  <br/>
+		    //  <div className="btn">
+		    //   <Button variant="contained" color="secondary" onClick={handleClick}>
+		    //         Employee Login
+		    //   </Button>
 		    
-		      </div>
-		</div>}
+		    //   </div> */}
+			:<Admin />}	</div>}
 		{val===true && <EmpRoute student={name1.toLowerCase()} count1={count} id={id} />}
 		
 		</div>
