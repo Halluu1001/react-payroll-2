@@ -27,7 +27,7 @@ const Login=(props)=>
 
   const handleClick=()=>
   {
-    if((name!="123") || (password!="123"))
+    if((name!="Admin") || (password!="Admin@123"))
     {
       alert("enter correct userName and password!!");
     }
